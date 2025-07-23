@@ -1,0 +1,66 @@
+body {
+    padding-top: var(--header-height);
+}
+
+/* 모든 id 앵커 섹션에 헤더 높이만큼 여유 공간 추가 */
+section[id] {
+    /* 모던 브라우저용 */
+    scroll-margin-top: var(--header-height);
+
+    /* IE 폴백 */
+    position: relative;
+    top: calc(-1 * var(--header-height));
+    padding-top: var(--header-height);
+}
+
+/* 첫 번째 섹션만 살짝 추가 여백 */
+main > section:first-of-type {
+    margin-top: 3rem;
+}
+
+/* 회사소개 섹션 공통 */
+.about-section {
+    padding: 60px 0;
+    text-align: center;
+}
+.section-heading {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-section p {
+    margin-top: 50px;
+}
+
+/* 사무실 이미지 */
+.office-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 50px;
+}
+.office-img {
+    flex: 1 1 calc(50% - 20px); /* 2열 기준, 필요시 33%로 바꾸면 3열 */
+    max-width: 400px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+/* 오시는 길 맵 래퍼 (기존 map-wrap 활용) */
+.map-wrap {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* address 스타일 */
+.about-section address {
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 1.6;
+    color: #555;
+}

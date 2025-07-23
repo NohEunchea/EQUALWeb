@@ -1,0 +1,159 @@
+/* 네비게이션 메뉴 */
+/* ─── 네비게이션 기본 ─── */
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.main-nav ul li {
+    position: relative; /* 서브메뉴 위치 기준 */
+    display: inline-block; /* 가로 배치 */
+}
+
+/* ─── 1차 메뉴 링크 스타일 ─── */
+.main-nav ul li > a {
+    font-weight: 550;
+    font-size: 18px;
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+}
+
+/* ─── 서브메뉴 숨기기 ─── */
+.main-nav .submenu {
+    display: none;
+    position: absolute;
+    top: 100%; /* 부모 메뉴 바로 아래 */
+    left: 50%; /* 네비(또는 li) 컨테이너 가로 50% 지점 */
+    transform: translateX(-50%); /* 자기 너비의 절반만큼 왼쪽으로 이동 */
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    min-width: 160px;
+    z-index: 100;
+}
+
+/* ─── 호버 시 서브메뉴 보이기 ─── */
+.main-nav ul li:hover > .submenu {
+    display: block;
+}
+
+/* ─── 서브메뉴 아이템 스타일 ─── */
+.main-nav .submenu li {
+    display: block;
+    text-align: center;
+    margin-bottom: 18px;
+}
+.main-nav .submenu li a {
+    display: block;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.main-nav .submenu li a:hover {
+    background: none; /* 배경 없애기 */
+    text-decoration: underline; /* 아래줄 추가 */
+    text-underline-offset: 5px;
+}
+
+/* 히어로 섹션 */
+.hero {
+    position: relative;
+    overflow: hidden;
+    height: 100vh; /* 필요에 따라 조절 */
+}
+
+.hero-slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* 크로스페이드 속도 */
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-text {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.hero-text h1 {
+    font-weight: 700;
+    font-size: 3rem; /* 기존 2.5rem → 3rem으로 키움 */
+    line-height: 2; /* 줄 간격은 취향에 맞게 조절 */
+}
+
+.hero-text h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 5; /* 줄 간격은 취향에 맞게 조절 */
+}
+
+/* 서비스 섹션 */
+.services {
+    padding: 60px 0;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.services h2 {
+    font-weight: 700;
+}
+
+.services h3 {
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.service-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.service-item {
+    background: #bbbbbb;
+    width: 250px; /* 원 지름 조절 */
+    height: 250px; /* 원 지름 조절 */
+    border-radius: 50%; /* 완전한 원 모양 */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 세로 가운데 정렬 */
+    align-items: center; /* 가로 가운데 정렬 */
+    text-align: center;
+    padding: 20px; /* 내부 여백 */
+    margin: 50px; /* 아이템 간 간격 */
+    flex: 0 0 auto; /* flex-grow 방지 */
+}
+
+.service-item h3 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
