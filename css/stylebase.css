@@ -5,7 +5,7 @@ body {
 
 :root {
     /* 실제 header 높이(px)를 한 곳에서만 관리 */
-    --header-height: 80px;
+    --header-height: 100px;
 }
 
 /* 공통 */
@@ -22,19 +22,18 @@ body {
 
 /* 헤더 */
 .site-header {
-    padding: 20px 0;
-    height: var(--header-height);
-    position: fixed; /* 화면에 고정 */
-    top: 0; /* 최상단 */
+    display: flex; /* flex 컨테이너 */
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬(필요시) */
+    height: var(--header-height); /* 고정 높이 유지 */
+    padding: 0; /* 위아래 패딩 제거 */
+    position: fixed;
+    top: 0;
     left: 0;
-    width: 100%; /* 전체 너비 */
-    background: #fff; /* 배경색(반투명이라면 opaque로) */
+    width: 100%;
+    background: #fff;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* 다른 콘텐츠 위로 */
-}
-
-.logo {
-    height: 40px;
+    z-index: 1000;
 }
 
 /* --- 헤더 레이아웃 --- */
@@ -44,24 +43,25 @@ body {
     align-items: center; /* 수직 가운데 정렬 */
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto; /* 전체 중앙 정렬(좌우 여백 자동) */
 }
 
-/* 로고 크기 조정(필요 시) */
 .logo {
-    height: 40px;
+    max-height: 140px; /* 최대 높이 */
+    width: auto; /* 가로 비율 자동 */
+    flex-shrink: 0;
+    margin-left: -100px;
+    margin-bottom: -10px;
 }
 
 /* 네비게이션 메뉴 */
 /* ─── 네비게이션 기본 ─── */
 .main-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    display: flex; /* flex 컨테이너로 전환 */
+    gap: 45px; /* 메뉴 사이 간격 */
 }
 .main-nav ul li {
-    position: relative; /* 서브메뉴 위치 기준 */
-    display: inline-block; /* 가로 배치 */
+    position: relative; /* 절대 위치 기준 유지 */
+    display: block;
 }
 
 /* ─── 1차 메뉴 링크 스타일 ─── */
@@ -69,7 +69,7 @@ body {
     font-weight: 550;
     font-size: 18px;
     display: block;
-    padding: 10px 15px;
+    padding: 10px 30px;
     color: #333;
     text-decoration: none;
 }
@@ -176,6 +176,7 @@ body {
 }
 
 /* 푸터 */
+/* 기존 푸터 스타일 유지 */
 .site-footer {
     position: sticky;
     width: 100%;
@@ -193,4 +194,25 @@ body {
 }
 .site-footer p {
     line-height: 1.6;
+}
+
+/* 1) .container 내부를 flex 컨테이너로 */
+.site-footer .container {
+    display: flex;
+    align-items: center; /* 로고·텍스트 수직 중앙 정렬 */
+
+    position: relative;
+    left: -100px;
+}
+
+/* 2) 로고 크기 및 간격 */
+.footer-logo {
+    max-height: 120px; /* 최대 높이 */
+    width: auto; /* 가로 비율 자동 */
+    flex-shrink: 0; /* 컨테이너 좁아져도 축소 방지 */
+}
+
+/* 3) 텍스트 줄 간격 + 위아래 마진 */
+.footer-text p {
+    margin: 3px 0; /* 줄 간격 조정 */
 }
