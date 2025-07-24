@@ -200,14 +200,13 @@ body {
 .site-footer .container {
     display: flex;
     align-items: center; /* 로고·텍스트 수직 중앙 정렬 */
-
     position: relative;
-    left: -100px;
+    left: -90px;
 }
 
 /* 2) 로고 크기 및 간격 */
 .footer-logo {
-    max-height: 120px; /* 최대 높이 */
+    max-height: 140px; /* 최대 높이 */
     width: auto; /* 가로 비율 자동 */
     flex-shrink: 0; /* 컨테이너 좁아져도 축소 방지 */
 }
